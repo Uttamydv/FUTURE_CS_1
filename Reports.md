@@ -126,14 +126,14 @@ admin' --
 ```
 
 - This tries to comment out part of the SQL query to bypass login, but the website might show a blank (white) page or an error message instead.
-<img src="assets/White screen.png" width="800" />
+
 
 ```
 ' OR 'a'='a  
 ```
 
 - Another version of the always-true condition. It works like the first payload and makes the site show all user records again.
-<img src="assets/Variation of 1st payload.png" width="800" />
+
 
 ```
 ' UNION SELECT NULL, username, password FROM users --  
