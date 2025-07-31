@@ -111,7 +111,8 @@ SQL Injection allows attackers to execute arbitrary SQL code by injecting malici
 ```
 
 - This payload uses a classic SQL injection trick. It always makes the condition true, so the website shows all user records by bypassing normal checks and displaying a list of users.
-<img src="assets/SQLi Payload show user records.png" width="800" />
+<img width="1656" height="980" alt="Screenshot From 2025-07-23 12-31-37" src="https://github.com/user-attachments/assets/55db19fa-0787-4633-a453-b011e73504a9" />
+
 
 
 ```
@@ -193,7 +194,10 @@ XSS vulnerabilities allow attackers to inject and execute malicious scripts in a
 - **Test Performed:** Entered payload in the "name" input field and submitted the form.
 - **Result:** A browser alert popped up with the message "XSS". After closing the popup, the page displayed the name as **"hello"**, which confirms that user input was reflected without handling or sanitization.
 - **Screenshot:**
-<img src="assets/XSS 1.png" width="800" />
+<img width="1487" height="886" alt="Screenshot From 2025-07-22 18-23-56" src="https://github.com/user-attachments/assets/471861ae-cd47-44ac-9f24-27f51efbd427" />
+
+
+<img width="1656" height="980" alt="Screenshot From 2025-07-23 12-31-58" src="https://github.com/user-attachments/assets/75021ed7-8988-4090-a85f-164b50929048" />
 
 
 ### XSS Finding 2: Reflected XSS via `img` Tag
@@ -206,7 +210,8 @@ XSS vulnerabilities allow attackers to inject and execute malicious scripts in a
     - A pop-up alert box appeared with the message "1" (from the alert).
     - Once dismissed, the page showed the text "hello" alongside a **broken image icon**, meaning the image failed to load, but the script executed, confirming a reflected XSS vulnerability.
 - **Screenshot:**
-<img src="assets/XSS 2.png" width="800" />
+<img width="1908" height="981" alt="Screenshot From 2025-07-22 18-11-39" src="https://github.com/user-attachments/assets/ecca3115-f473-43b2-93ce-c1cc7f79e521" />
+
 
 
 ### XSS Finding 3: Reflected XSS via `svg` Tag
@@ -220,7 +225,8 @@ XSS vulnerabilities allow attackers to inject and execute malicious scripts in a
     - After dismissing the alert, the page displayed the text "hello".
     - There was noticeable **extra space** between the name input and the output, meaning the SVG element rendered but was invisible — confirming exploitation.
 - **Screenshot:**
-<img src="assets/XSS 3.png" width="800" />
+<img width="1908" height="981" alt="Screenshot From 2025-07-22 18-10-55" src="https://github.com/user-attachments/assets/9ba95443-e23a-496a-8bc5-be099c4728b9" />
+
 
 
 ### XSS Finding 4: Reflected XSS via `iframe` Tag
@@ -233,7 +239,7 @@ XSS vulnerabilities allow attackers to inject and execute malicious scripts in a
     - A pop-up alert box appeared with the message "1", confirming JavaScript execution.
     - After dismissing the alert, the page displayed the text "hello", along with a visible empty frame (`iframe`) below the input area — indicating that the element rendered in the DOM as part of the response.
 - **Screenshot:**
-<img src="assets/XSS 4.png" width="800" />
+
 
 
 ### XSS Finding 5: Reflected XSS via `input` Tag with `type="image"`
@@ -246,7 +252,8 @@ XSS vulnerabilities allow attackers to inject and execute malicious scripts in a
     - A pop-up alert box appeared with the message "XSS", confirming execution of JavaScript and thus a reflected XSS vulnerability.
     - After dismissing the alert, the page showed the text "hello" alongside the rendered image input element—visually represented next to the response.
 - **Screenshot:**
-<img src="assets/XSS 5.png" width="800" />
+<img width="1908" height="981" alt="Screenshot From 2025-07-22 18-11-39" src="https://github.com/user-attachments/assets/fbb3b8e9-4377-4ac2-b2fe-9172235b0d0e" />
+
 
 
 ### XSS Finding 6: Stored XSS via `script` Injection in Message Box
@@ -269,7 +276,8 @@ Name:
         - This suggests that the unclosed `<h1>` from the name field altered the HTML structure, causing minimal but visible formatting issues.
         - The term `hiMessage:` appeared in **bold**, likely due to the `<h1>`’s visual impact and the page structure concatenating the name and message label.
 - **Screenshot:**
-<img src="assets/XSS 6.png" width="800" />
+<img width="1487" height="886" alt="Screenshot From 2025-07-22 18-23-56" src="https://github.com/user-attachments/assets/06f8563f-eccd-41d2-9c1b-fe7d5e18105d" />
+
 
 
 ### XSS Finding 7: Stored XSS via `img` Tag Injection in Message Box
@@ -291,7 +299,8 @@ Name:
 
     - A broken image icon (rendered from the failed `img` source) appeared next to the "hiMessage:" text, showing that the image tag was included in the DOM and executed its script.
 - **Screenshot:**
-<img src="assets/XSS 7.png" width="800" />
+<img width="1656" height="980" alt="Screenshot From 2025-07-23 12-31-22" src="https://github.com/user-attachments/assets/d562c909-cd63-4a25-b6f3-091cc900585d" />
+
 
 
 ### XSS Finding 8: Stored XSS via `svg` Tag Injection in Message Box
@@ -313,7 +322,8 @@ Name:
 
     - There was **visible blank space** beneath the "hiMessage:" text, indicating the SVG element was rendered in the DOM with default size but without visible content—supporting successful injection even without a visible artifact like an icon.
 - **Screenshot:**
-<img src="assets/XSS 8.png" width="800" />
+<img width="1656" height="980" alt="Screenshot From 2025-07-23 12-31-58" src="https://github.com/user-attachments/assets/4433282d-bd47-4108-93a8-a16882780ef1" />
+
 
 
 ### XSS Finding 9: Stored XSS via `iframe` Tag with `javascript:` Source in Message Box
@@ -335,7 +345,8 @@ Name:
 
     - A **blank iframe** appeared below the "hiMessage:" text, visually indicating that the `<iframe>` tag had been rendered on the page and the payload executed.
 - **Screenshot:**
-<img src="assets/XSS 9.png" width="800" />
+<img width="1656" height="980" alt="Screenshot From 2025-07-23 12-31-58" src="https://github.com/user-attachments/assets/b8606944-44bd-497c-806b-74b53eb51b3b" />
+
 
 
 ### XSS Finding 10: Stored XSS via `marquee` Tag with `onstart` Event in Message Box
@@ -357,7 +368,8 @@ Name:
 
     - Below "hiMessage:", the word **Hello** scrolled from **right to left**, as expected from the `<marquee>` element, confirming that the injected HTML rendered with its behavior intact.
 - **Screenshot:**
-<img src="assets/XSS 10.png" width="800" />
+<img width="1112" height="485" alt="Screenshot From 2025-07-23 12-35-34" src="https://github.com/user-attachments/assets/6f943c00-6d9a-49d3-bdbf-1cfc52f90f09" />
+
 
 
 ### XSS Result
@@ -400,9 +412,8 @@ Test the login form of DVWA for authentication flaws, focusing on weak credentia
 ### Credentials Tested
 
 A custom list of commonly used or guessed credentials was manually tested.
-<img src="assets/Usernames.png" width="800" />
 
-<img src="assets/passwords.png" width="800" />
+<img width="915" height="852" alt="Screenshot From 2025-07-22 20-55-14" src="https://github.com/user-attachments/assets/0b9cece1-de5f-4ce9-a442-d0125a1b5834" />
 
 -
 
@@ -420,23 +431,9 @@ A custom list of commonly used or guessed credentials was manually tested.
 
 **Screenshots of burp suite dashboard with highlighted credentials.**
 
-<img src="assets/Succesfull credentials.png" width="800" />
-- Screenshots of successful logins
+<img width="915" height="852" alt="Screenshot From 2025-07-22 20-55-14" src="https://github.com/user-attachments/assets/a9e81f50-8cf2-43f2-81b7-6b7b89b30533" />
 
-1. Username "admin" , Password "password"
-   <img src="assets/admin.png" width="800" />
-
-2. Username "smithy" , Password "password"
-   <img src="assets/smithy.png" width="800" />
-
-3. Username "gordonb" , Password "abc123"
-   <img src="assets/gordon.png" width="800" />
-
-4. Username "pablo" , Password "letmein"
-    <img src="assets/pablo.png" width="800" />
-
-5. Username "1337" , Password "charley"
-    <img src="assets/1337.png" width="800" />
+<img width="1222" height="278" alt="Screenshot From 2025-07-23 07-22-53" src="https://github.com/user-attachments/assets/3b1e1534-4ba2-4255-9761-25aac4124647" />
 
 
 
